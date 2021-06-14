@@ -10,6 +10,7 @@ from os.path import dirname
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from enum import Enum
+# SQLAlchemy
 
 log = logging.getLogger(__name__)
 router = APIRouter()
