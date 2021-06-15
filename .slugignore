@@ -1,4 +1,6 @@
 /notebooks
+/data_model
+/tests
 tracks_genres_lyrics_lang.csv.zipaa
 tracks_genres_lyrics_lang.csv.zipab
 artists.csv.zip
@@ -12,3 +14,11 @@ scaler.pkl
 genres_tfidf.pkl
 fg_encoder.h5
 fg_encoded_df.pkl
+
+Spotifinder.pdf
+ml.py
+viz.py
+db.py
+data_model_usage.py
+loaded_model.joblib
+main_old.py
