@@ -12,3 +12,6 @@ scaler.pkl
 genres_tfidf.pkl
 fg_encoder.h5
 fg_encoded_df.pkl
+
+/data_model
+/tests
