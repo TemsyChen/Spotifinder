@@ -9,6 +9,7 @@ chardet
 click
 cycler
 cymem
+dash
 fastapi
 flatbuffers
 gast
