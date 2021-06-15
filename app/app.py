@@ -7,10 +7,6 @@ import pandas as pd
 from joblib import load
 from os.path import dirname
 
-# from wordcloud import WordCloud
-# import base64
-# from io import BytesIO
-
 DIR = dirname(__file__)
 MODELS_DIR = DIR + '/../models/'  
 DATA_DIR = DIR + '/../data/'
@@ -41,7 +37,7 @@ print(loaded_model)
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, title="Spotifinder", external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
     html.Label("Spotifinder: recommending you songs with similar lyrics", style={'fontSize':40, 'textAlign':'left'}),
@@ -109,67 +105,6 @@ def predict(artist, song):
                 html.Td(rec_songs[col][i]) for col in rec_cols
             ]) for i in range(5)]
         ) 
-
-# stopwords = set(STOPWORDS)
-
-# @app.callback(
-#     Output('rec-table', 'children'),
-#     [Input('Artist', 'value')],
-#     [Input('Songs', 'value')],
-#     [Input('rec-table', 'value')]
-# )
-# def get_lyrics(artist, song):
-#   songs_by_artist = df[['track_id','track_name']][df['track_artist'] == artist]
-#   song_id = songs_by_artist[songs_by_artist['track_name'] == song]
-#   song_id = song_id[:1] #This selects the first if there are more than one
-#   song_id = song_id['track_id']
-#   song_id = pd.Series(song_id).item()
-#   lyrics = df['lyrics'][df['track_id'] == song_id]
-#   lyrics = pd.Series(lyrics).item()
-#   return lyrics
-  
-# def compare_lyrics(artist, song):
-#     song_recs = predict(artist, song)
-    
-#     rec_artist = song_recs['artist'][0]
-#     rec_song = song_recs['song'][0]
-    
-#     lyrics1 = get_lyrics(artist, song)
-#     lyrics2 = get_lyrics(rec_artist, rec_song)
-    
-#     return lyrics1, lyrics2
-
-# def show_wordcloud(data, title = None):
-#     wc = WordCloud(
-#         background_color='white',
-#         stopwords=stopwords,
-#         max_words=50,
-#         max_font_size=40,
-#         scale=3,
-#         random_state=37).generate(str(data))
-
-#     wc_img = wc.to_image()
-
-#     with BytesIO() as buffer:
-#     wc_img.save(buffer, 'png')
-#     img2 = base64.b64encode(buffer.getvalue()).decode()
-
-    
-#     fig = plt.figure(1, figsize=(12,12))
-#     plt.axis('off')
-#     if title:
-#         fig.suptitle(title, fontsize=20)
-#         fig.subplots_adjust(top=2.3)
-        
-#     plt.imshow(wordcloud)
-#     plt.show()
-
-# di = {'abc':10, 'def': 20, 'ghi':2, 'jkl':55}
-# wc = WordCloud().generate_from_frequencies(frequencies=di)
-# wc_img = wc.to_image()
-# with BytesIO() as buffer:
-#     wc_img.save(buffer, 'png')
-#     img2 = base64.b64encode(buffer.getvalue()).decode()
 
 if __name__ == '__main__':
     app.run_server(debug=True)
