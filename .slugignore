@@ -15,3 +15,8 @@ fg_encoded_df.pkl
 
 /data_model
 /tests
+loaded_model.joblib
+main_old.py
+ml.py
+viz.py
+data_model_usage.out
