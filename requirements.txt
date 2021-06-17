@@ -17,6 +17,7 @@ google-auth-oauthlib
 google-pasta
 greenlet
 grpcio
+gunicorn
 h5py
 idna
 itsdangerous
