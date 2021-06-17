@@ -6,6 +6,9 @@ from dash.dependencies import Input, Output
 import pandas as pd
 from joblib import load
 from os.path import dirname
+# import uvicorn as uvicorn
+# from fastapi import FastAPI
+# from starlette.middleware.wsgi import WSGIMiddleware
 
 DIR = dirname(__file__)
 MODELS_DIR = DIR + '/../models/'  
@@ -34,6 +37,8 @@ load_files()
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+
+server = app.server
 
 app.layout = html.Div([
     html.Label("Spotifinder: recommending you songs with similar lyrics", style={'fontSize':40, 'textAlign':'left'}),
@@ -103,3 +108,8 @@ def predict(artist, song):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+
+# if __name__ == "__main__":
+#     server = FastAPI()
+#     server.mount("/dash", WSGIMiddleware(app.server))
+#     uvicorn.run(server)
