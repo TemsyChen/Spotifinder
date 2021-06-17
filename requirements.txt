@@ -9,6 +9,9 @@ chardet
 click
 cycler
 cymem
+dash
+dash-core-components
+dash-html-components
 fastapi
 flatbuffers
 gast
